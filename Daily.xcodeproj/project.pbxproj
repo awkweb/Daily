@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05AA15D71A0BF6A10024E981 /* AddDailyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AA15D61A0BF6A10024E981 /* AddDailyViewController.swift */; };
 		05ABE6761A0BC7B00081E883 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05ABE6751A0BC7B00081E883 /* AppDelegate.swift */; };
 		05ABE6791A0BC7B00081E883 /* Daily.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 05ABE6771A0BC7B00081E883 /* Daily.xcdatamodeld */; };
 		05ABE67B1A0BC7B10081E883 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05ABE67A1A0BC7B10081E883 /* ViewController.swift */; };
@@ -14,6 +15,9 @@
 		05ABE6801A0BC7B10081E883 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05ABE67F1A0BC7B10081E883 /* Images.xcassets */; };
 		05ABE6831A0BC7B10081E883 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05ABE6811A0BC7B10081E883 /* LaunchScreen.xib */; };
 		05ABE68F1A0BC7B10081E883 /* DailyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05ABE68E1A0BC7B10081E883 /* DailyTests.swift */; };
+		05ABE6991A0BC8C00081E883 /* DailyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05ABE6981A0BC8C00081E883 /* DailyCell.swift */; };
+		05ABE69B1A0BCD9F0081E883 /* DailyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05ABE69A1A0BCD9F0081E883 /* DailyModel.swift */; };
+		05ABE69D1A0BCF6A0081E883 /* DailyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05ABE69C1A0BCF6A0081E883 /* DailyDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		05AA15D61A0BF6A10024E981 /* AddDailyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDailyViewController.swift; sourceTree = "<group>"; };
 		05ABE6701A0BC7AF0081E883 /* Daily.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Daily.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05ABE6741A0BC7B00081E883 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05ABE6751A0BC7B00081E883 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -38,6 +43,9 @@
 		05ABE6881A0BC7B10081E883 /* DailyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DailyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		05ABE68D1A0BC7B10081E883 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05ABE68E1A0BC7B10081E883 /* DailyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTests.swift; sourceTree = "<group>"; };
+		05ABE6981A0BC8C00081E883 /* DailyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyCell.swift; sourceTree = "<group>"; };
+		05ABE69A1A0BCD9F0081E883 /* DailyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyModel.swift; sourceTree = "<group>"; };
+		05ABE69C1A0BCF6A0081E883 /* DailyDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +89,11 @@
 			children = (
 				05ABE6751A0BC7B00081E883 /* AppDelegate.swift */,
 				05ABE67A1A0BC7B10081E883 /* ViewController.swift */,
+				05ABE69C1A0BCF6A0081E883 /* DailyDetailViewController.swift */,
+				05AA15D61A0BF6A10024E981 /* AddDailyViewController.swift */,
 				05ABE67C1A0BC7B10081E883 /* Main.storyboard */,
+				05ABE69A1A0BCD9F0081E883 /* DailyModel.swift */,
+				05ABE6981A0BC8C00081E883 /* DailyCell.swift */,
 				05ABE67F1A0BC7B10081E883 /* Images.xcassets */,
 				05ABE6811A0BC7B10081E883 /* LaunchScreen.xib */,
 				05ABE6771A0BC7B00081E883 /* Daily.xcdatamodeld */,
@@ -216,8 +228,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				05ABE67B1A0BC7B10081E883 /* ViewController.swift in Sources */,
+				05ABE69B1A0BCD9F0081E883 /* DailyModel.swift in Sources */,
+				05AA15D71A0BF6A10024E981 /* AddDailyViewController.swift in Sources */,
+				05ABE6991A0BC8C00081E883 /* DailyCell.swift in Sources */,
 				05ABE6761A0BC7B00081E883 /* AppDelegate.swift in Sources */,
 				05ABE6791A0BC7B00081E883 /* Daily.xcdatamodeld in Sources */,
+				05ABE69D1A0BCF6A0081E883 /* DailyDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,6 +425,7 @@
 				05ABE6941A0BC7B10081E883 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		05ABE6951A0BC7B10081E883 /* Build configuration list for PBXNativeTarget "DailyTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +434,7 @@
 				05ABE6971A0BC7B10081E883 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
