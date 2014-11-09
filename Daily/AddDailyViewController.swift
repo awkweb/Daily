@@ -27,8 +27,8 @@ class AddDailyViewController: UIViewController {
     }
     
     @IBAction func doneButtonTapped(sender: UIButton) {
-        var newDaily = DailyModel(name: nameTextField.text)
-        mainVC?.dailyArray.append(newDaily)
+        var newDaily = DailyModel(name: nameTextField.text, type: true)
+        mainVC?.baseArray[0].append(newDaily)
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 }

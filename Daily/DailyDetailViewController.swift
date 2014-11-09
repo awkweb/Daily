@@ -27,9 +27,9 @@ class DailyDetailViewController: UIViewController {
     }
     
     @IBAction func doneBarButtonItemTapped(sender: UIBarButtonItem) {
-        var daily = DailyModel(name: nameTextField.text)
+        var daily = DailyModel(name: nameTextField.text, type: true)
         
-        self.mainVC.dailyArray[mainVC.tableView.indexPathForSelectedRow()!.row] = daily
+        self.mainVC.baseArray[0][mainVC.tableView.indexPathForSelectedRow()!.row] = daily
         
         self.navigationController?.popViewControllerAnimated(true)
     }
