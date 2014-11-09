@@ -42,6 +42,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             let indexPath = self.tableView.indexPathForSelectedRow()
             let thisDaily = dailyArray[indexPath!.row]
             detailVC.detailDailyModel = thisDaily
+            detailVC.mainVC = self
         }
         else if segue.identifier == "showAdd" {
             let addDailyVC: AddDailyViewController = segue.destinationViewController as AddDailyViewController

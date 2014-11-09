@@ -10,17 +10,27 @@ import UIKit
 
 class DailyDetailViewController: UIViewController {
 
-    @IBOutlet weak var nameLabel: UITextField!
+    @IBOutlet weak var nameTextField: UITextField!
+    
+    var mainVC: ViewController!
     
     var detailDailyModel: DailyModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.nameLabel.text = detailDailyModel.name
+        self.nameTextField.text = detailDailyModel.name
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    @IBAction func doneBarButtonItemTapped(sender: UIBarButtonItem) {
+        var daily = DailyModel(name: nameTextField.text)
+        
+        self.mainVC.dailyArray[mainVC.tableView.indexPathForSelectedRow()!.row] = daily
+        
+        self.navigationController?.popViewControllerAnimated(true)
     }
 }

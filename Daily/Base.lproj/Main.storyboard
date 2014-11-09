@@ -135,12 +135,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Details" id="Qkp-Vf-RkM">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="D2e-MB-bgz"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="D2e-MB-bgz">
+                            <connections>
+                                <action selector="doneBarButtonItemTapped:" destination="pBY-Ku-GjX" id="USJ-br-87F"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="nameLabel" destination="BO4-Ve-jzP" id="ImW-cb-4sr"/>
+                        <outlet property="nameTextField" destination="BO4-Ve-jzP" id="yKZ-JK-upP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="64h-GL-eMy" userLabel="First Responder" sceneMemberID="firstResponder"/>
