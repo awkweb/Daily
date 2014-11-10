@@ -15,7 +15,7 @@ class AddDailyViewController: UIViewController {
     
     var mainVC: ViewController!
     
-    var type = true
+    var type: Int = 0 // 0 indicates a DO item, 1 indicates a DON'T item
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,28 +29,24 @@ class AddDailyViewController: UIViewController {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    
+    // When the UISegmentedConrol is changed, update the type value
     @IBAction func typeSegmentedControlChanged(sender: UISegmentedControl) {
         if self.typeSegmentedControl.selectedSegmentIndex == 0 {
-            type = true
+            self.type = 0
         }
         else if self.typeSegmentedControl.selectedSegmentIndex == 1 {
-            type = false
+            self.type = 1
         }
         else {
-            type = true
+            self.type = 0
         }
     }
     
+    // When the Done button is tapped, add the daily item to the baseArray at the type section
     @IBAction func doneButtonTapped(sender: UIButton) {
-        var newDaily = DailyModel(name: nameTextField.text, type: self.type)
+        var newDaily = DailyModel(name: self.nameTextField.text, type: self.type)
         
-        if newDaily.type == true {
-            mainVC?.baseArray[0].append(newDaily)
-        }
-        else {
-            mainVC?.baseArray[1].append(newDaily)
-        }
+        self.mainVC?.baseArray[self.type].append(newDaily)
         
         self.dismissViewControllerAnimated(true, completion: nil)
     }

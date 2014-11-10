@@ -10,5 +10,5 @@ import Foundation
 
 struct DailyModel {
     var name: String
-    var type: Bool
+    var type: Int
 }

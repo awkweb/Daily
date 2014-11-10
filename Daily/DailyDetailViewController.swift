@@ -17,53 +17,44 @@ class DailyDetailViewController: UIViewController {
     
     var detailDailyModel: DailyModel!
     
-    var type = true
-    
-    var reverseType = 0
+    var type: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if self.detailDailyModel.type == true {
-            reverseType = 0
-        }
-        else if self.detailDailyModel.type == false {
-            reverseType = 1
-        }
-        else {
-            reverseType = 0
-        }
-        
-        self.typeSegmentedControl.selectedSegmentIndex = reverseType
-        self.nameTextField.text = detailDailyModel.name
+        self.typeSegmentedControl.selectedSegmentIndex = self.detailDailyModel.type
+        self.nameTextField.text = self.detailDailyModel.name
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    
+    // When the UISegmentedConrol is changed, update the type value
     @IBAction func typeSegmentedControlChanged(sender: UISegmentedControl) {
         if self.typeSegmentedControl.selectedSegmentIndex == 0 {
-            type = true
+            self.type = 0
         }
         else if self.typeSegmentedControl.selectedSegmentIndex == 1 {
-            type = false
+            self.type = 1
         }
         else {
-            type = true
+            self.type = 0
         }
     }
     
+    // Update the daily item in the appropriate section
     @IBAction func doneBarButtonItemTapped(sender: UIBarButtonItem) {
-        var daily = DailyModel(name: nameTextField.text, type: self.type)
+        // Set the daily item to the current details
+        var daily = DailyModel(name: self.nameTextField.text, type: self.type)
         
-        // If daily already exists in baseArray[0], then replace row. If it doesn't append it.
-        if daily.type == true {
-            self.mainVC.baseArray[0][mainVC.tableView.indexPathForSelectedRow()!.row] = daily
+        // If the daily item exists in the current section, update it. Else append to new section and delte it from the current section.
+        if daily.type == self.detailDailyModel.type {
+            self.mainVC?.baseArray[daily.type][self.mainVC.tableView.indexPathForSelectedRow()!.row] = daily
         }
         else {
-            self.mainVC.baseArray[1][mainVC.tableView.indexPathForSelectedRow()!.row] = daily
+            self.mainVC?.baseArray[detailDailyModel.type].removeAtIndex(self.mainVC.tableView.indexPathForSelectedRow()!.row)
+            self.mainVC?.baseArray[daily.type].append(daily)
         }
         
         self.navigationController?.popViewControllerAnimated(true)

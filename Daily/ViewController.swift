@@ -17,9 +17,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let daily1 = DailyModel(name: "Stay present", type: true)
-        let daily2 = DailyModel(name: "Six sets of twenty push-ups and sit-ups", type: true)
-        let daily3 = DailyModel(name: "Set expectations and not meet them", type: false)
+        let daily1 = DailyModel(name: "Stay present", type: 0)
+        let daily2 = DailyModel(name: "Six sets of twenty push-ups and sit-ups", type: 0)
+        let daily3 = DailyModel(name: "Set expectations and not meet them", type: 1)
         
         var doArray = [daily1, daily2]
         var dontArray = [daily3]
