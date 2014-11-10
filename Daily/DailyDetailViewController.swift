@@ -13,8 +13,6 @@ class DailyDetailViewController: UIViewController {
     @IBOutlet weak var typeSegmentedControl: UISegmentedControl!
     @IBOutlet weak var nameTextField: UITextField!
     
-    var mainVC: ViewController!
-    
     var detailDailyModel: DailyModel!
     
     var type: Int = 0
@@ -22,7 +20,7 @@ class DailyDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.typeSegmentedControl.selectedSegmentIndex = self.detailDailyModel.type
+        self.typeSegmentedControl.selectedSegmentIndex = self.detailDailyModel.type.longValue
         self.nameTextField.text = self.detailDailyModel.name
     }
 
@@ -45,17 +43,21 @@ class DailyDetailViewController: UIViewController {
     
     // Update the daily item in the appropriate section
     @IBAction func doneBarButtonItemTapped(sender: UIBarButtonItem) {
-        // Set the daily item to the current details
-        var daily = DailyModel(name: self.nameTextField.text, type: self.type)
+
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         
-        // If the daily item exists in the current section, update it. Else append to new section and delte it from the current section.
-        if daily.type == self.detailDailyModel.type {
-            self.mainVC?.baseArray[daily.type][self.mainVC.tableView.indexPathForSelectedRow()!.row] = daily
-        }
-        else {
-            self.mainVC?.baseArray[detailDailyModel.type].removeAtIndex(self.mainVC.tableView.indexPathForSelectedRow()!.row)
-            self.mainVC?.baseArray[daily.type].append(daily)
-        }
+        self.detailDailyModel.name = self.nameTextField.text
+        self.detailDailyModel.type = self.type
+        
+//        if daily.type == self.detailDailyModel.type {
+//            self.mainVC?.baseArray[daily.type][self.mainVC.tableView.indexPathForSelectedRow()!.row] = daily
+//        }
+//        else {
+//            self.mainVC?.baseArray[detailDailyModel.type].removeAtIndex(self.mainVC.tableView.indexPathForSelectedRow()!.row)
+//            self.mainVC?.baseArray[daily.type].append(daily)
+//        }
+        
+        appDelegate.saveContext()
         
         self.navigationController?.popViewControllerAnimated(true)
     }

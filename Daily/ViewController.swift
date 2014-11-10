@@ -7,26 +7,21 @@
 //
 
 import UIKit
+import CoreData
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var baseArray: [[DailyModel]] = []
+    let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
+    var fetchedResultsController: NSFetchedResultsController = NSFetchedResultsController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let daily1 = DailyModel(name: "Stay present", type: 0)
-        let daily2 = DailyModel(name: "Six sets of twenty push-ups and sit-ups", type: 0)
-        let daily3 = DailyModel(name: "Set expectations and not meet them", type: 1)
         
-        var doArray = [daily1, daily2]
-        var dontArray = [daily3]
-        
-        baseArray = [doArray, dontArray]
-        
-        self.tableView.reloadData()
+        self.fetchedResultsController = getFetchResultsController()
+        self.fetchedResultsController.delegate = self
+        self.fetchedResultsController.performFetch(nil)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -43,13 +38,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if segue.identifier == "showDetails" {
             let detailVC: DailyDetailViewController = segue.destinationViewController as DailyDetailViewController
             let indexPath = self.tableView.indexPathForSelectedRow()
-            let thisDaily = baseArray[indexPath!.section][indexPath!.row]
+            let thisDaily = self.fetchedResultsController.objectAtIndexPath(indexPath!) as DailyModel
             detailVC.detailDailyModel = thisDaily
-            detailVC.mainVC = self
         }
         else if segue.identifier == "showAdd" {
             let addDailyVC: AddDailyViewController = segue.destinationViewController as AddDailyViewController
-            addDailyVC.mainVC = self
         }
     }
     
@@ -62,11 +55,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     // UITableViewDataSource functions
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return self.baseArray.count
+        return self.fetchedResultsController.sections!.count
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.fetchedResultsController.sections![section].numberOfObjects
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let thisDaily = baseArray[indexPath.section][indexPath.row]
+        let thisDaily = self.fetchedResultsController.objectAtIndexPath(indexPath) as DailyModel
         
         // Linking prototype cell to ViewController
         var cell: DailyCell = tableView.dequeueReusableCellWithIdentifier("myCell") as DailyCell
@@ -74,10 +71,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell.dailyLabel.text = thisDaily.name
         
         return cell
-    }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.baseArray[section].count
     }
     
     // UITableViewDelegate functions
@@ -99,8 +92,31 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        self.baseArray[indexPath.section].removeAtIndex(indexPath.row)
+        
+        let managedObject = self.fetchedResultsController.objectAtIndexPath(indexPath) as NSManagedObject
+        managedObjectContext?.deleteObject(managedObject)
+        
+        (UIApplication.sharedApplication().delegate as AppDelegate).saveContext()
+    }
+    
+    // NSFetchedResultsControllerDelegate functions
+    func controllerDidChangeContent(controller: NSFetchedResultsController) {
         self.tableView.reloadData()
+    }
+    
+    // Fetch
+    
+    func dailyFetchRequest() -> NSFetchRequest {
+        let fetchRequest = NSFetchRequest(entityName: "DailyModel")
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        return fetchRequest
+    }
+    
+    func getFetchResultsController() -> NSFetchedResultsController {
+        var fetchedResultsController = NSFetchedResultsController(fetchRequest: dailyFetchRequest(), managedObjectContext: managedObjectContext!, sectionNameKeyPath: nil, cacheName: nil)
+        
+        return fetchedResultsController
     }
     
 }
