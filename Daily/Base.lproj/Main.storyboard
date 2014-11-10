@@ -79,7 +79,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Daily Item Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9uu-uC-Nao">
-                                <rect key="frame" x="16" y="175" width="343" height="30"/>
+                                <rect key="frame" x="16" y="190" width="343" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -101,6 +101,16 @@
                                     <action selector="cancelButtonTapped:" destination="vdT-Jb-tGW" eventType="touchUpInside" id="Qd3-98-ijJ"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zos-rL-yVq">
+                                <rect key="frame" x="16" y="129" width="343" height="29"/>
+                                <segments>
+                                    <segment title="Do"/>
+                                    <segment title="Don't"/>
+                                </segments>
+                                <connections>
+                                    <action selector="typeSegmentedControlChanged:" destination="vdT-Jb-tGW" eventType="valueChanged" id="R7H-BH-RvB"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -108,6 +118,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="nameTextField" destination="9uu-uC-Nao" id="aQz-ch-5qr"/>
+                        <outlet property="typeSegmentedControl" destination="zos-rL-yVq" id="WjK-d1-zQZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gxf-J7-EkR" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -126,11 +137,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Daily Item Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BO4-Ve-jzP">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Daily Item Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BO4-Ve-jzP">
                                 <rect key="frame" x="16" y="190" width="343" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="mI5-13-axi">
+                                <rect key="frame" x="16" y="129" width="343" height="29"/>
+                                <segments>
+                                    <segment title="Do"/>
+                                    <segment title="Don't"/>
+                                </segments>
+                                <connections>
+                                    <action selector="typeSegmentedControlChanged:" destination="pBY-Ku-GjX" eventType="valueChanged" id="5GN-Jb-Rdg"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -145,6 +166,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="nameTextField" destination="BO4-Ve-jzP" id="yKZ-JK-upP"/>
+                        <outlet property="typeSegmentedControl" destination="mI5-13-axi" id="sNA-0p-3IP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="64h-GL-eMy" userLabel="First Responder" sceneMemberID="firstResponder"/>
