@@ -33,6 +33,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.didReceiveMemoryWarning()
     }
     
+    // Segue to the AddDailyViewController
+    @IBAction func addBarButtonItemTapped(sender: UIBarButtonItem) {
+        self.performSegueWithIdentifier("showAdd", sender: self)
+    }
+    
     // Segue to the DailyDetailViewController
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetails" {
@@ -46,13 +51,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
     
-    // Segue to the AddDailyViewController
-    @IBAction func addBarButtonItemTapped(sender: UIBarButtonItem) {
-        self.performSegueWithIdentifier("showAdd", sender: self)
-    }
-    
-    
-    // UITableViewDataSource functions
+    // UITABLEVIEWDATASOURCE FUNCTIONS
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return self.fetchedResultsController.sections!.count
@@ -73,7 +72,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return cell
     }
     
-    // UITableViewDelegate functions
+    // UITABLEVIEWDELEGATE FUNCTIONS
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         performSegueWithIdentifier("showDetails", sender: self)
     }
@@ -86,11 +86,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if section == 0 {
             return "Do"
         }
-        else {
+        else if section == 1 {
             return "Don't"
+        }
+        else {
+            return "Error"
         }
     }
     
+    // Swipe to reveal delete button. Delete item and save context.
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         
         let managedObject = self.fetchedResultsController.objectAtIndexPath(indexPath) as NSManagedObject
@@ -99,7 +103,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         (UIApplication.sharedApplication().delegate as AppDelegate).saveContext()
     }
     
-    // NSFetchedResultsControllerDelegate functions
+    // NSFETCHEDRESULTSCONTROLLER FUNCTIONS
+    
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
         self.tableView.reloadData()
     }
@@ -109,12 +114,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func dailyFetchRequest() -> NSFetchRequest {
         let fetchRequest = NSFetchRequest(entityName: "DailyModel")
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
-        fetchRequest.sortDescriptors = [sortDescriptor]
+        let typeDescriptor = NSSortDescriptor(key: "type", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor, typeDescriptor]
         return fetchRequest
     }
     
     func getFetchResultsController() -> NSFetchedResultsController {
-        var fetchedResultsController = NSFetchedResultsController(fetchRequest: dailyFetchRequest(), managedObjectContext: managedObjectContext!, sectionNameKeyPath: nil, cacheName: nil)
+        var fetchedResultsController = NSFetchedResultsController(fetchRequest: dailyFetchRequest(), managedObjectContext: managedObjectContext!, sectionNameKeyPath: "type", cacheName: nil)
         
         return fetchedResultsController
     }

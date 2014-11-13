@@ -15,11 +15,10 @@ class DailyDetailViewController: UIViewController {
     
     var detailDailyModel: DailyModel!
     
-    var type: Int = 0
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Set controls equal to the daily item's values
         self.typeSegmentedControl.selectedSegmentIndex = self.detailDailyModel.type.longValue
         self.nameTextField.text = self.detailDailyModel.name
     }
@@ -28,34 +27,13 @@ class DailyDetailViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    // When the UISegmentedConrol is changed, update the type value
-    @IBAction func typeSegmentedControlChanged(sender: UISegmentedControl) {
-        if self.typeSegmentedControl.selectedSegmentIndex == 0 {
-            self.type = 0
-        }
-        else if self.typeSegmentedControl.selectedSegmentIndex == 1 {
-            self.type = 1
-        }
-        else {
-            self.type = 0
-        }
-    }
-    
     // Update the daily item in the appropriate section
     @IBAction func doneBarButtonItemTapped(sender: UIBarButtonItem) {
 
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         
         self.detailDailyModel.name = self.nameTextField.text
-        self.detailDailyModel.type = self.type
-        
-//        if daily.type == self.detailDailyModel.type {
-//            self.mainVC?.baseArray[daily.type][self.mainVC.tableView.indexPathForSelectedRow()!.row] = daily
-//        }
-//        else {
-//            self.mainVC?.baseArray[detailDailyModel.type].removeAtIndex(self.mainVC.tableView.indexPathForSelectedRow()!.row)
-//            self.mainVC?.baseArray[daily.type].append(daily)
-//        }
+        self.detailDailyModel.type = self.typeSegmentedControl.selectedSegmentIndex
         
         appDelegate.saveContext()
         

@@ -107,9 +107,6 @@
                                     <segment title="Do"/>
                                     <segment title="Don't"/>
                                 </segments>
-                                <connections>
-                                    <action selector="typeSegmentedControlChanged:" destination="vdT-Jb-tGW" eventType="valueChanged" id="R7H-BH-RvB"/>
-                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -148,9 +145,6 @@
                                     <segment title="Do"/>
                                     <segment title="Don't"/>
                                 </segments>
-                                <connections>
-                                    <action selector="typeSegmentedControlChanged:" destination="pBY-Ku-GjX" eventType="valueChanged" id="5GN-Jb-Rdg"/>
-                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
