@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Daily Widget.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>Daily.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -18,6 +23,11 @@
 			<true/>
 		</dict>
 		<key>05ABE6871A0BC7B10081E883</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>05AE37741A15432C003FA7EF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
