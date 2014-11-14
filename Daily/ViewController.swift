@@ -26,6 +26,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        
         self.tableView.reloadData()
     }
 
@@ -84,7 +85,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
-            return "Do"
+            if checkSectionType() {
+                return "Don't"
+            }
+            else {
+                return "Do"
+            }
         }
         else if section == 1 {
             return "Don't"
@@ -96,11 +102,24 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     // Swipe to reveal delete button. Delete item and save context.
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        
-        let managedObject = self.fetchedResultsController.objectAtIndexPath(indexPath) as NSManagedObject
-        managedObjectContext?.deleteObject(managedObject)
+        managedObjectContext?.deleteObject(self.fetchedResultsController.objectAtIndexPath(indexPath) as NSManagedObject)
         
         (UIApplication.sharedApplication().delegate as AppDelegate).saveContext()
+    }
+    
+    // Check section type if only one section exists
+    func checkSectionType() -> Bool {
+        var type: Bool = false
+        
+        if self.fetchedResultsController.sections!.count == 1 {
+            if self.fetchedResultsController.sections![0].numberOfObjects > 0 {
+                var indexPath = NSIndexPath(forItem: 0, inSection: 0)
+                var daily = self.fetchedResultsController.objectAtIndexPath(indexPath) as DailyModel
+                type = daily.type.boolValue
+            }
+        }
+        
+        return type
     }
     
     // NSFETCHEDRESULTSCONTROLLER FUNCTIONS
@@ -113,9 +132,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func dailyFetchRequest() -> NSFetchRequest {
         let fetchRequest = NSFetchRequest(entityName: "DailyModel")
-        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
         let typeDescriptor = NSSortDescriptor(key: "type", ascending: true)
-        fetchRequest.sortDescriptors = [sortDescriptor, typeDescriptor]
+        let nameDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        fetchRequest.sortDescriptors = [typeDescriptor,nameDescriptor]
         return fetchRequest
     }
     

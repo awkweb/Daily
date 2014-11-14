@@ -18,8 +18,6 @@
 		05ABE6991A0BC8C00081E883 /* DailyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05ABE6981A0BC8C00081E883 /* DailyCell.swift */; };
 		05ABE69D1A0BCF6A0081E883 /* DailyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05ABE69C1A0BCF6A0081E883 /* DailyDetailViewController.swift */; };
 		05AE37781A15432C003FA7EF /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05AE37771A15432C003FA7EF /* NotificationCenter.framework */; };
-		05AE377D1A15432C003FA7EF /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AE377C1A15432C003FA7EF /* TodayViewController.swift */; };
-		05AE377F1A15432C003FA7EF /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05AE377E1A15432C003FA7EF /* MainInterface.storyboard */; };
 		05AE37821A15432C003FA7EF /* Daily Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 05AE37751A15432C003FA7EF /* Daily Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		05B5920E1A112592009F5AF8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B5920D1A112592009F5AF8 /* CoreData.framework */; };
 		05B592101A112723009F5AF8 /* DailyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B5920F1A112723009F5AF8 /* DailyModel.swift */; };
@@ -73,9 +71,6 @@
 		05ABE69C1A0BCF6A0081E883 /* DailyDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyDetailViewController.swift; sourceTree = "<group>"; };
 		05AE37751A15432C003FA7EF /* Daily Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Daily Widget.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		05AE37771A15432C003FA7EF /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
-		05AE377B1A15432C003FA7EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		05AE377C1A15432C003FA7EF /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
-		05AE377E1A15432C003FA7EF /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
 		05B5920D1A112592009F5AF8 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		05B5920F1A112723009F5AF8 /* DailyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyModel.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -112,7 +107,6 @@
 			children = (
 				05ABE6721A0BC7AF0081E883 /* Daily */,
 				05ABE68B1A0BC7B10081E883 /* DailyTests */,
-				05AE37791A15432C003FA7EF /* Daily Widget */,
 				05AE37761A15432C003FA7EF /* Frameworks */,
 				05ABE6711A0BC7AF0081E883 /* Products */,
 			);
@@ -178,24 +172,6 @@
 				05AE37771A15432C003FA7EF /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		05AE37791A15432C003FA7EF /* Daily Widget */ = {
-			isa = PBXGroup;
-			children = (
-				05AE377C1A15432C003FA7EF /* TodayViewController.swift */,
-				05AE377E1A15432C003FA7EF /* MainInterface.storyboard */,
-				05AE377A1A15432C003FA7EF /* Supporting Files */,
-			);
-			path = "Daily Widget";
-			sourceTree = "<group>";
-		};
-		05AE377A1A15432C003FA7EF /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				05AE377B1A15432C003FA7EF /* Info.plist */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,6 +242,7 @@
 				TargetAttributes = {
 					05ABE66F1A0BC7AF0081E883 = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = LCFAPK739L;
 					};
 					05ABE6871A0BC7B10081E883 = {
 						CreatedOnToolsVersion = 6.1;
@@ -318,7 +295,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05AE377F1A15432C003FA7EF /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,7 +327,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05AE377D1A15432C003FA7EF /* TodayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,6 +446,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Daily/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -482,6 +458,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Daily/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -584,6 +561,7 @@
 				05AE37841A15432D003FA7EF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

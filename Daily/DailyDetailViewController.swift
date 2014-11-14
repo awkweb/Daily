@@ -36,7 +36,7 @@ class DailyDetailViewController: UIViewController {
         self.detailDailyModel.type = self.typeSegmentedControl.selectedSegmentIndex
         
         appDelegate.saveContext()
-        
+                
         self.navigationController?.popViewControllerAnimated(true)
     }
 }

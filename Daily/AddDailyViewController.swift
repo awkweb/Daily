@@ -44,7 +44,7 @@ class AddDailyViewController: UIViewController {
         var request = NSFetchRequest(entityName: "DailyModel")
         var error: NSError? = nil
         var results: NSArray = managedObjectContext!.executeFetchRequest(request, error: &error)!
-        
+                
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 }
