@@ -17,8 +17,6 @@
 		05ABE68F1A0BC7B10081E883 /* DailyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05ABE68E1A0BC7B10081E883 /* DailyTests.swift */; };
 		05ABE6991A0BC8C00081E883 /* DailyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05ABE6981A0BC8C00081E883 /* DailyCell.swift */; };
 		05ABE69D1A0BCF6A0081E883 /* DailyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05ABE69C1A0BCF6A0081E883 /* DailyDetailViewController.swift */; };
-		05AE37781A15432C003FA7EF /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05AE37771A15432C003FA7EF /* NotificationCenter.framework */; };
-		05AE37821A15432C003FA7EF /* Daily Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 05AE37751A15432C003FA7EF /* Daily Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		05B5920E1A112592009F5AF8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B5920D1A112592009F5AF8 /* CoreData.framework */; };
 		05B592101A112723009F5AF8 /* DailyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B5920F1A112723009F5AF8 /* DailyModel.swift */; };
 /* End PBXBuildFile section */
@@ -31,13 +29,6 @@
 			remoteGlobalIDString = 05ABE66F1A0BC7AF0081E883;
 			remoteInfo = Daily;
 		};
-		05AE37801A15432C003FA7EF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 05ABE6681A0BC7AF0081E883 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 05AE37741A15432C003FA7EF;
-			remoteInfo = "Daily Widget";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -47,7 +38,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				05AE37821A15432C003FA7EF /* Daily Widget.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -69,7 +59,6 @@
 		05ABE68E1A0BC7B10081E883 /* DailyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTests.swift; sourceTree = "<group>"; };
 		05ABE6981A0BC8C00081E883 /* DailyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyCell.swift; sourceTree = "<group>"; };
 		05ABE69C1A0BCF6A0081E883 /* DailyDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyDetailViewController.swift; sourceTree = "<group>"; };
-		05AE37751A15432C003FA7EF /* Daily Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Daily Widget.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		05AE37771A15432C003FA7EF /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		05B5920D1A112592009F5AF8 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		05B5920F1A112723009F5AF8 /* DailyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyModel.swift; sourceTree = SOURCE_ROOT; };
@@ -91,14 +80,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		05AE37721A15432C003FA7EF /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				05AE37781A15432C003FA7EF /* NotificationCenter.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -117,7 +98,6 @@
 			children = (
 				05ABE6701A0BC7AF0081E883 /* Daily.app */,
 				05ABE6881A0BC7B10081E883 /* DailyTests.xctest */,
-				05AE37751A15432C003FA7EF /* Daily Widget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -189,7 +169,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				05AE37811A15432C003FA7EF /* PBXTargetDependency */,
 			);
 			name = Daily;
 			productName = Daily;
@@ -214,23 +193,6 @@
 			productReference = 05ABE6881A0BC7B10081E883 /* DailyTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		05AE37741A15432C003FA7EF /* Daily Widget */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 05AE37851A15432D003FA7EF /* Build configuration list for PBXNativeTarget "Daily Widget" */;
-			buildPhases = (
-				05AE37711A15432C003FA7EF /* Sources */,
-				05AE37721A15432C003FA7EF /* Frameworks */,
-				05AE37731A15432C003FA7EF /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Daily Widget";
-			productName = "Daily Widget";
-			productReference = 05AE37751A15432C003FA7EF /* Daily Widget.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -247,9 +209,6 @@
 					05ABE6871A0BC7B10081E883 = {
 						CreatedOnToolsVersion = 6.1;
 						TestTargetID = 05ABE66F1A0BC7AF0081E883;
-					};
-					05AE37741A15432C003FA7EF = {
-						CreatedOnToolsVersion = 6.1;
 					};
 				};
 			};
@@ -268,7 +227,6 @@
 			targets = (
 				05ABE66F1A0BC7AF0081E883 /* Daily */,
 				05ABE6871A0BC7B10081E883 /* DailyTests */,
-				05AE37741A15432C003FA7EF /* Daily Widget */,
 			);
 		};
 /* End PBXProject section */
@@ -285,13 +243,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		05ABE6861A0BC7B10081E883 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		05AE37731A15432C003FA7EF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -323,13 +274,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		05AE37711A15432C003FA7EF /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -337,11 +281,6 @@
 			isa = PBXTargetDependency;
 			target = 05ABE66F1A0BC7AF0081E883 /* Daily */;
 			targetProxy = 05ABE6891A0BC7B10081E883 /* PBXContainerItemProxy */;
-		};
-		05AE37811A15432C003FA7EF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 05AE37741A15432C003FA7EF /* Daily Widget */;
-			targetProxy = 05AE37801A15432C003FA7EF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -500,30 +439,6 @@
 			};
 			name = Release;
 		};
-		05AE37831A15432D003FA7EF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Daily Widget/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		05AE37841A15432D003FA7EF /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = "Daily Widget/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -550,15 +465,6 @@
 			buildConfigurations = (
 				05ABE6961A0BC7B10081E883 /* Debug */,
 				05ABE6971A0BC7B10081E883 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		05AE37851A15432D003FA7EF /* Build configuration list for PBXNativeTarget "Daily Widget" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				05AE37831A15432D003FA7EF /* Debug */,
-				05AE37841A15432D003FA7EF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

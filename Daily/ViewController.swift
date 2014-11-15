@@ -13,6 +13,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     @IBOutlet weak var tableView: UITableView!
     
+    let appDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
     let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
     var fetchedResultsController: NSFetchedResultsController = NSFetchedResultsController()
     
@@ -26,6 +27,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        
+        checkSectionEmpty()
         
         self.tableView.reloadData()
     }
@@ -52,6 +55,45 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
     
+    // Check section type if only one section exists
+    func checkSectionType() -> Bool {
+        var type: Bool = false
+        
+        if self.fetchedResultsController.sections!.count == 1 {
+            if self.fetchedResultsController.sections![0].numberOfObjects > 0 {
+                var indexPath = NSIndexPath(forItem: 0, inSection: 0)
+                var daily = self.fetchedResultsController.objectAtIndexPath(indexPath) as DailyModel
+                type = daily.type.boolValue
+            }
+        }
+        
+        return type
+    }
+    
+    // Check if section is empty
+    func checkSectionEmpty() {
+        if self.fetchedResultsController.sections!.count == 0 {
+            for var sec = 0; sec < 2; sec++ {
+                
+                let entityDescription = NSEntityDescription.entityForName("DailyModel", inManagedObjectContext:managedObjectContext!)
+                
+                let daily = DailyModel(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext!)
+                
+                if sec == 0 {
+                    daily.name = "Tap me to add a DO item"
+                }
+                else {
+                    daily.name = "Tap me to add a DON'T item"
+                }
+                
+                daily.type = sec
+                
+                appDelegate.saveContext()
+            }
+        }
+    }
+    
+    
     // UITABLEVIEWDATASOURCE FUNCTIONS
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -66,7 +108,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let thisDaily = self.fetchedResultsController.objectAtIndexPath(indexPath) as DailyModel
         
         // Linking prototype cell to ViewController
-        var cell: DailyCell = tableView.dequeueReusableCellWithIdentifier("myCell") as DailyCell
+        var cell: DailyCell = self.tableView.dequeueReusableCellWithIdentifier("myCell") as DailyCell
         
         cell.dailyLabel.text = thisDaily.name
         
@@ -92,11 +134,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 return "Do"
             }
         }
-        else if section == 1 {
-            return "Don't"
-        }
         else {
-            return "Error"
+            return "Don't"
         }
     }
     
@@ -104,22 +143,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         managedObjectContext?.deleteObject(self.fetchedResultsController.objectAtIndexPath(indexPath) as NSManagedObject)
         
-        (UIApplication.sharedApplication().delegate as AppDelegate).saveContext()
-    }
-    
-    // Check section type if only one section exists
-    func checkSectionType() -> Bool {
-        var type: Bool = false
+        appDelegate.saveContext()
         
-        if self.fetchedResultsController.sections!.count == 1 {
-            if self.fetchedResultsController.sections![0].numberOfObjects > 0 {
-                var indexPath = NSIndexPath(forItem: 0, inSection: 0)
-                var daily = self.fetchedResultsController.objectAtIndexPath(indexPath) as DailyModel
-                type = daily.type.boolValue
-            }
-        }
-        
-        return type
+        checkSectionEmpty()
     }
     
     // NSFETCHEDRESULTSCONTROLLER FUNCTIONS
