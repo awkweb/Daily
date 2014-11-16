@@ -42,7 +42,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.performSegueWithIdentifier("showAdd", sender: self)
     }
     
-    // Segue to the DailyDetailViewController
+    // Segue to ViewControllers
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetails" {
             let detailVC: DailyDetailViewController = segue.destinationViewController as DailyDetailViewController

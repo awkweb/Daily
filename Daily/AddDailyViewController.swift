@@ -26,6 +26,15 @@ class AddDailyViewController: UIViewController {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    @IBAction func typeSegmentedControlChanged(sender: UISegmentedControl) {
+        if self.typeSegmentedControl.selectedSegmentIndex == 0 {
+            self.typeSegmentedControl.tintColor = UIColor.greenColor()
+        }
+        else {
+            self.typeSegmentedControl.tintColor = UIColor.redColor()
+        }
+    }
+    
     // When the Done button is tapped, add the daily item
     @IBAction func doneButtonTapped(sender: UIButton) {
         
