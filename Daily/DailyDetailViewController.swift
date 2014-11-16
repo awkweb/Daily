@@ -21,6 +21,8 @@ class DailyDetailViewController: UIViewController {
         // Set controls equal to the daily item's values
         self.typeSegmentedControl.selectedSegmentIndex = self.detailDailyModel.type.longValue
         self.nameTextField.text = self.detailDailyModel.name
+        
+        self.nameTextField.becomeFirstResponder()
     }
 
     override func didReceiveMemoryWarning() {

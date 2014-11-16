@@ -16,6 +16,8 @@ class AddDailyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.nameTextField.becomeFirstResponder()
     }
 
     override func didReceiveMemoryWarning() {
@@ -24,15 +26,7 @@ class AddDailyViewController: UIViewController {
     
     @IBAction func cancelButtonTapped(sender: UIButton) {
         self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    @IBAction func typeSegmentedControlChanged(sender: UISegmentedControl) {
-        if self.typeSegmentedControl.selectedSegmentIndex == 0 {
-            self.typeSegmentedControl.tintColor = UIColor.greenColor()
-        }
-        else {
-            self.typeSegmentedControl.tintColor = UIColor.redColor()
-        }
+        self.nameTextField.resignFirstResponder()
     }
     
     // When the Done button is tapped, add the daily item
@@ -53,7 +47,8 @@ class AddDailyViewController: UIViewController {
         var request = NSFetchRequest(entityName: "DailyModel")
         var error: NSError? = nil
         var results: NSArray = managedObjectContext!.executeFetchRequest(request, error: &error)!
-                
+        
         self.dismissViewControllerAnimated(true, completion: nil)
+        self.nameTextField.resignFirstResponder()
     }
 }

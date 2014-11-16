@@ -122,7 +122,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 25
+        return 40
     }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
