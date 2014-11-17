@@ -10,18 +10,32 @@ import UIKit
 import CoreData
 
 class AddDailyViewController: UIViewController {
-
+    
+    @IBOutlet weak var doneButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var typeSegmentedControl: UISegmentedControl!
     @IBOutlet weak var nameTextField: UITextField!
+
+    
+    var mainVC: ViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Set up element styling
+        self.doneButton.tintColor = self.mainVC.gray
+        self.cancelButton.tintColor = self.mainVC.gray
+        self.typeSegmentedControl.tintColor = self.mainVC.green
         
         self.nameTextField.becomeFirstResponder()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    @IBAction func typeSegmentedControlChanged(sender: UISegmentedControl) {
+        checkSegmentColor()
     }
     
     @IBAction func cancelButtonTapped(sender: UIButton) {
@@ -50,5 +64,17 @@ class AddDailyViewController: UIViewController {
         
         self.dismissViewControllerAnimated(true, completion: nil)
         self.nameTextField.resignFirstResponder()
+    }
+    
+    // HELPERS
+    
+    // Check for typeSegmentedControl tintColor
+    func checkSegmentColor() {
+        if self.typeSegmentedControl.selectedSegmentIndex == 0 {
+            self.typeSegmentedControl.tintColor = self.mainVC.green
+        }
+        else if self.typeSegmentedControl.selectedSegmentIndex == 1 {
+            self.typeSegmentedControl.tintColor = self.mainVC.red
+        }
     }
 }

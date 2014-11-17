@@ -11,15 +11,29 @@ import CoreData
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
 
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var tableView: UITableView!
     
     let appDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
     let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
     var fetchedResultsController: NSFetchedResultsController = NSFetchedResultsController()
     
+    // COLORS
+    var gray = UIColor(red: (62/255.0), green: (62/255.0), blue: (62/255.0), alpha: 1.0)
+    var green = UIColor(red: (39/255.0), green: (174/255.0), blue: (96/255.0), alpha: 1.0)
+    var red = UIColor(red: (192/255.0), green: (57/255.0), blue: (43/255.0), alpha: 1.0)
+    var white = UIColor.whiteColor()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Setting up navigationBar styling
+        self.navigationController?.navigationBar.translucent = false
+        self.navigationController?.navigationBar.barTintColor = gray
+        self.navigationController?.navigationBar.tintColor = white
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: white]
+        self.navigationController?.navigationBar.barStyle = UIBarStyle.Black
+    
         self.fetchedResultsController = getFetchResultsController()
         self.fetchedResultsController.delegate = self
         self.fetchedResultsController.performFetch(nil)
@@ -42,20 +56,22 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.performSegueWithIdentifier("showAdd", sender: self)
     }
     
-    // Segue to ViewControllers
+    // Prepare for segues to ViewControllers
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetails" {
             let detailVC: DailyDetailViewController = segue.destinationViewController as DailyDetailViewController
             let indexPath = self.tableView.indexPathForSelectedRow()
             let thisDaily = self.fetchedResultsController.objectAtIndexPath(indexPath!) as DailyModel
             detailVC.detailDailyModel = thisDaily
+            detailVC.mainVC = self
         }
         else if segue.identifier == "showAdd" {
             let addDailyVC: AddDailyViewController = segue.destinationViewController as AddDailyViewController
+            addDailyVC.mainVC = self
         }
     }
     
-    // Check section type if only one section exists
+    // Check section type if only one section exists. Return the section type, Do = 0 and Don't = 1.
     func checkSectionType() -> Bool {
         var type: Bool = false
         
@@ -70,7 +86,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return type
     }
     
-    // Check if section is empty
+    // Check if all sections are empty. If empty, add the informational items.
     func checkSectionEmpty() {
         if self.fetchedResultsController.sections!.count == 0 {
             for var sec = 0; sec < 2; sec++ {
@@ -80,10 +96,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 let daily = DailyModel(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext!)
                 
                 if sec == 0 {
-                    daily.name = "Tap me to add a DO item"
+                    daily.name = "Tap to update me"
                 }
                 else {
-                    daily.name = "Tap me to add a DON'T item"
+                    daily.name = "Swipe to delete me"
                 }
                 
                 daily.type = sec
@@ -92,7 +108,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             }
         }
     }
-    
     
     // UITABLEVIEWDATASOURCE FUNCTIONS
     
@@ -121,10 +136,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         performSegueWithIdentifier("showDetails", sender: self)
     }
     
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40
-    }
-    
+    // Set section titles
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
             if checkSectionType() {
@@ -137,6 +149,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         else {
             return "Don't"
         }
+    }
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
     }
     
     // Swipe to reveal delete button. Delete item and save context.
