@@ -159,7 +159,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
         var deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Delete") {
             (action, indexPath) -> Void in
-            tableView.editing = false
+            self.tableView.editing = false
+            
+            // Swipe to reveal delete button. Delete item and save context.
+            self.managedObjectContext?.deleteObject(self.fetchedResultsController.objectAtIndexPath(indexPath) as NSManagedObject)
+            
+            self.appDelegate.saveContext()
+            
+            self.checkSectionEmpty()
         }
         
         deleteAction.backgroundColor = red
