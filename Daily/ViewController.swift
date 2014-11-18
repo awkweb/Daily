@@ -155,6 +155,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return 40
     }
     
+    // Change delete button red color to theme red color
+    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
+        var deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Delete") {
+            (action, indexPath) -> Void in
+            tableView.editing = false
+        }
+        
+        deleteAction.backgroundColor = red
+        
+        return [deleteAction]
+    }
+    
     // Swipe to reveal delete button. Delete item and save context.
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         managedObjectContext?.deleteObject(self.fetchedResultsController.objectAtIndexPath(indexPath) as NSManagedObject)
