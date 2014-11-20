@@ -28,7 +28,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewDidLoad()
         
         // Setting up navigationBar styling
-        self.navigationController?.navigationBar.translucent = false
         self.navigationController?.navigationBar.barTintColor = gray
         self.navigationController?.navigationBar.tintColor = white
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: white]
