@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="HxC-Si-ARN">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Daily-->
@@ -16,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="75" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="mb0-bL-Szy">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="75" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="mb0-bL-Szy">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -26,13 +27,19 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1WZ-iv-plX" id="toP-YR-2Dh">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xnD-M7-Jvy">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xnD-M7-Jvy">
                                                     <rect key="frame" x="8" y="28" width="359" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="centerY" secondItem="xnD-M7-Jvy" secondAttribute="centerY" constant="-1.5" id="71w-2z-UVE"/>
+                                                <constraint firstAttribute="centerX" secondItem="xnD-M7-Jvy" secondAttribute="centerX" id="9nr-3y-36v"/>
+                                                <constraint firstItem="xnD-M7-Jvy" firstAttribute="trailing" secondItem="toP-YR-2Dh" secondAttribute="trailingMargin" id="grH-IK-F7a"/>
+                                                <constraint firstItem="xnD-M7-Jvy" firstAttribute="leading" secondItem="toP-YR-2Dh" secondAttribute="leadingMargin" id="wmO-gE-mvT"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="dailyLabel" destination="xnD-M7-Jvy" id="WK1-BR-Ae4"/>
@@ -46,6 +53,26 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="mb0-bL-Szy" secondAttribute="trailing" constant="-16" id="1vb-ue-fbX"/>
+                            <constraint firstItem="mb0-bL-Szy" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="BLC-f9-wnn"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="mb0-bL-Szy" secondAttribute="bottom" id="HNK-2T-Fpq"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="mb0-bL-Szy" secondAttribute="bottom" id="J5v-qC-qKm"/>
+                            <constraint firstItem="mb0-bL-Szy" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="V41-ro-0K7"/>
+                            <constraint firstItem="mb0-bL-Szy" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="YwX-CK-l8g"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mb0-bL-Szy" secondAttribute="trailing" constant="16" id="aey-Gv-KaO"/>
+                            <constraint firstItem="mb0-bL-Szy" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="f8e-hy-jXJ"/>
+                            <constraint firstItem="mb0-bL-Szy" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="16" id="znK-Sv-TnL"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="V41-ro-0K7"/>
+                                <exclude reference="YwX-CK-l8g"/>
+                                <exclude reference="aey-Gv-KaO"/>
+                                <exclude reference="znK-Sv-TnL"/>
+                                <exclude reference="HNK-2T-Fpq"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Daily" id="4Ez-Gg-YmH">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="J5o-XU-IVq">
@@ -78,21 +105,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Daily Item Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9uu-uC-Nao">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Daily Item Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9uu-uC-Nao">
                                 <rect key="frame" x="16" y="216" width="343" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="Bwv-ki-DDO"/>
+                                    <constraint firstAttribute="height" constant="30" id="HP4-sq-EXT"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Bwv-ki-DDO"/>
+                                        <exclude reference="HP4-sq-EXT"/>
+                                    </mask>
+                                </variation>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oRw-OW-q3Q">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oRw-OW-q3Q">
                                 <rect key="frame" x="299" y="28" width="60" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="0Zu-LU-Opk"/>
+                                    <constraint firstAttribute="width" constant="60" id="GWk-lO-px6"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <state key="normal" title="Done"/>
                                 <connections>
                                     <action selector="doneButtonTapped:" destination="vdT-Jb-tGW" eventType="touchUpInside" id="cTv-nT-qQZ"/>
                                 </connections>
                             </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zos-rL-yVq">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zos-rL-yVq">
                                 <rect key="frame" x="16" y="277" width="343" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="5XA-Re-g7G"/>
+                                    <constraint firstAttribute="width" constant="343" id="7S0-3y-LFs"/>
+                                </constraints>
                                 <segments>
                                     <segment title="Do"/>
                                     <segment title="Don't"/>
@@ -101,8 +146,12 @@
                                     <action selector="typeSegmentedControlChanged:" destination="vdT-Jb-tGW" eventType="valueChanged" id="fCo-WN-eNg"/>
                                 </connections>
                             </segmentedControl>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aAW-Wd-txb">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aAW-Wd-txb">
                                 <rect key="frame" x="16" y="28" width="76" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="9vT-5G-dxK"/>
+                                    <constraint firstAttribute="width" constant="76" id="MS0-60-DQK"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Cancel">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -113,6 +162,19 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9uu-uC-Nao" firstAttribute="trailing" secondItem="azY-CF-MGV" secondAttribute="trailingMargin" id="Db4-6a-afC"/>
+                            <constraint firstAttribute="centerX" secondItem="9uu-uC-Nao" secondAttribute="centerX" id="Krh-ew-P06"/>
+                            <constraint firstItem="9uu-uC-Nao" firstAttribute="leading" secondItem="azY-CF-MGV" secondAttribute="leadingMargin" id="NRP-Rx-yX3"/>
+                            <constraint firstItem="oRw-OW-q3Q" firstAttribute="top" secondItem="azY-CF-MGV" secondAttribute="topMargin" constant="28" id="QlO-Fc-3nE"/>
+                            <constraint firstItem="zos-rL-yVq" firstAttribute="top" secondItem="9uu-uC-Nao" secondAttribute="bottom" constant="31" id="Qug-ra-vlV"/>
+                            <constraint firstItem="zos-rL-yVq" firstAttribute="leading" secondItem="azY-CF-MGV" secondAttribute="leadingMargin" id="SnD-lo-zFr"/>
+                            <constraint firstItem="aAW-Wd-txb" firstAttribute="leading" secondItem="azY-CF-MGV" secondAttribute="leadingMargin" id="Wma-K1-tSM"/>
+                            <constraint firstAttribute="centerY" secondItem="9uu-uC-Nao" secondAttribute="centerY" constant="102.5" id="Xqx-t9-cAs"/>
+                            <constraint firstItem="aAW-Wd-txb" firstAttribute="top" secondItem="azY-CF-MGV" secondAttribute="topMargin" constant="28" id="c6h-y8-uDF"/>
+                            <constraint firstItem="zos-rL-yVq" firstAttribute="trailing" secondItem="azY-CF-MGV" secondAttribute="trailingMargin" id="dox-pw-6fG"/>
+                            <constraint firstItem="oRw-OW-q3Q" firstAttribute="trailing" secondItem="azY-CF-MGV" secondAttribute="trailingMargin" id="j1j-Nt-48y"/>
+                        </constraints>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -139,12 +201,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Daily Item Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BO4-Ve-jzP">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Daily Item Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BO4-Ve-jzP">
                                 <rect key="frame" x="16" y="153" width="343" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textField>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="mI5-13-axi">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="mI5-13-axi">
                                 <rect key="frame" x="16" y="213" width="343" height="29"/>
                                 <segments>
                                     <segment title="Do"/>
@@ -156,6 +218,15 @@
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="BO4-Ve-jzP" firstAttribute="leading" secondItem="oSQ-WQ-a5m" secondAttribute="leadingMargin" id="5Q5-EQ-HJz"/>
+                            <constraint firstItem="BO4-Ve-jzP" firstAttribute="trailing" secondItem="oSQ-WQ-a5m" secondAttribute="trailingMargin" id="G20-YP-BMD"/>
+                            <constraint firstItem="mI5-13-axi" firstAttribute="trailing" secondItem="oSQ-WQ-a5m" secondAttribute="trailingMargin" id="PBe-OS-FCw"/>
+                            <constraint firstAttribute="centerX" secondItem="BO4-Ve-jzP" secondAttribute="centerX" id="RO2-rM-2Uy"/>
+                            <constraint firstItem="mI5-13-axi" firstAttribute="leading" secondItem="oSQ-WQ-a5m" secondAttribute="leadingMargin" id="bbU-1Z-XwK"/>
+                            <constraint firstAttribute="centerY" secondItem="BO4-Ve-jzP" secondAttribute="centerY" constant="133.5" id="kCS-ew-Snc"/>
+                            <constraint firstItem="mI5-13-axi" firstAttribute="top" secondItem="BO4-Ve-jzP" secondAttribute="bottom" constant="30" id="mjK-lu-E90"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Details" id="Qkp-Vf-RkM">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="D2e-MB-bgz">
