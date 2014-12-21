@@ -97,7 +97,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                     daily.name = "Tap to update me"
                 }
                 else {
-                    daily.name = "Swipe to delete me"
+                    daily.name = "Hold and swipe to delete me"
                 }
                 
                 daily.type = sec
