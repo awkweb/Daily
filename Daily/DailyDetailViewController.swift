@@ -9,56 +9,43 @@
 import UIKit
 
 class DailyDetailViewController: UIViewController {
+  
+  @IBOutlet weak var typeSegmentedControl: UISegmentedControl!
+  @IBOutlet weak var nameTextField: UITextField!
+  
+  var detailDailyModel: DailyModel!
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    typeSegmentedControl.selectedSegmentIndex = detailDailyModel.type.longValue
+    nameTextField.text = detailDailyModel.name
+    checkSegmentColor()
+    nameTextField.becomeFirstResponder()
+  }
+  
+  @IBAction func typeSegmentedControlChanged(sender: UISegmentedControl) {
+    checkSegmentColor()
+  }
+  
+  // Update the daily item in the appropriate section
+  @IBAction func doneBarButtonItemTapped(sender: UIBarButtonItem) {
+    
+    let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+    
+    detailDailyModel.name = nameTextField.text
+    detailDailyModel.type = typeSegmentedControl.selectedSegmentIndex
 
-    @IBOutlet weak var typeSegmentedControl: UISegmentedControl!
-    @IBOutlet weak var nameTextField: UITextField!
+    appDelegate.saveContext()
     
-    var detailDailyModel: DailyModel!
+    navigationController?.popViewControllerAnimated(true)
+  }
     
-    var mainVC: ViewController!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Set controls equal to the daily item's values
-        self.typeSegmentedControl.selectedSegmentIndex = self.detailDailyModel.type.longValue
-        self.nameTextField.text = self.detailDailyModel.name
-        
-        checkSegmentColor()
-        
-        self.nameTextField.becomeFirstResponder()
+  func checkSegmentColor() {
+    if typeSegmentedControl.selectedSegmentIndex == 0 {
+      typeSegmentedControl.tintColor = UIColor.green()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    else if typeSegmentedControl.selectedSegmentIndex == 1 {
+      typeSegmentedControl.tintColor = UIColor.red()
     }
-    
-    @IBAction func typeSegmentedControlChanged(sender: UISegmentedControl) {
-        checkSegmentColor()
-    }
-    
-    // Update the daily item in the appropriate section
-    @IBAction func doneBarButtonItemTapped(sender: UIBarButtonItem) {
-
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-        
-        self.detailDailyModel.name = self.nameTextField.text
-        self.detailDailyModel.type = self.typeSegmentedControl.selectedSegmentIndex
-        
-        appDelegate.saveContext()
-                
-        self.navigationController?.popViewControllerAnimated(true)
-    }
-    
-    // HELPERS
-    
-    // Check for typeSegmentedControl tintColor
-    func checkSegmentColor() {
-        if self.typeSegmentedControl.selectedSegmentIndex == 0 {
-            self.typeSegmentedControl.tintColor = self.mainVC.green
-        }
-        else if self.typeSegmentedControl.selectedSegmentIndex == 1 {
-            self.typeSegmentedControl.tintColor = self.mainVC.red
-        }
-    }
+  }
 }

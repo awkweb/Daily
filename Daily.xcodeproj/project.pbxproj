@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		054C47B71A66186200DF247E /* ColorConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054C47B61A66186200DF247E /* ColorConstants.swift */; };
 		05AA15D71A0BF6A10024E981 /* AddDailyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AA15D61A0BF6A10024E981 /* AddDailyViewController.swift */; };
 		05ABE6761A0BC7B00081E883 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05ABE6751A0BC7B00081E883 /* AppDelegate.swift */; };
 		05ABE6791A0BC7B00081E883 /* Daily.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 05ABE6771A0BC7B00081E883 /* Daily.xcdatamodeld */; };
@@ -45,6 +46,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		054C47B61A66186200DF247E /* ColorConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorConstants.swift; path = ../ColorConstants.swift; sourceTree = "<group>"; };
 		05AA15D61A0BF6A10024E981 /* AddDailyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDailyViewController.swift; sourceTree = "<group>"; };
 		05ABE6701A0BC7AF0081E883 /* Daily.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Daily.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05ABE6741A0BC7B00081E883 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				05ABE67C1A0BC7B10081E883 /* Main.storyboard */,
 				05ABE6981A0BC8C00081E883 /* DailyCell.swift */,
 				05B5920F1A112723009F5AF8 /* DailyModel.swift */,
+				054C47B61A66186200DF247E /* ColorConstants.swift */,
 				05ABE67F1A0BC7B10081E883 /* Images.xcassets */,
 				05ABE6811A0BC7B10081E883 /* LaunchScreen.xib */,
 				05ABE6771A0BC7B00081E883 /* Daily.xcdatamodeld */,
@@ -259,6 +262,7 @@
 				05ABE67B1A0BC7B10081E883 /* ViewController.swift in Sources */,
 				05AA15D71A0BF6A10024E981 /* AddDailyViewController.swift in Sources */,
 				05ABE6991A0BC8C00081E883 /* DailyCell.swift in Sources */,
+				054C47B71A66186200DF247E /* ColorConstants.swift in Sources */,
 				05ABE6761A0BC7B00081E883 /* AppDelegate.swift in Sources */,
 				05B592101A112723009F5AF8 /* DailyModel.swift in Sources */,
 				05ABE6791A0BC7B00081E883 /* Daily.xcdatamodeld in Sources */,

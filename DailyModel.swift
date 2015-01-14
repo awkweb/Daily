@@ -11,8 +11,6 @@ import CoreData
 
 @objc(DailyModel)
 class DailyModel: NSManagedObject {
-
-    @NSManaged var name: String
-    @NSManaged var type: NSNumber
-
+  @NSManaged var name: String
+  @NSManaged var type: NSNumber
 }

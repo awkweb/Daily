@@ -35,7 +35,8 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="centerY" secondItem="xnD-M7-Jvy" secondAttribute="centerY" constant="-1.5" id="71w-2z-UVE"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="xnD-M7-Jvy" secondAttribute="bottom" constant="17" id="1R1-YN-uJU"/>
+                                                <constraint firstItem="xnD-M7-Jvy" firstAttribute="top" secondItem="toP-YR-2Dh" secondAttribute="topMargin" constant="20" id="3pC-jn-8DR"/>
                                                 <constraint firstAttribute="centerX" secondItem="xnD-M7-Jvy" secondAttribute="centerX" id="9nr-3y-36v"/>
                                                 <constraint firstItem="xnD-M7-Jvy" firstAttribute="trailing" secondItem="toP-YR-2Dh" secondAttribute="trailingMargin" id="grH-IK-F7a"/>
                                                 <constraint firstItem="xnD-M7-Jvy" firstAttribute="leading" secondItem="toP-YR-2Dh" secondAttribute="leadingMargin" id="wmO-gE-mvT"/>
