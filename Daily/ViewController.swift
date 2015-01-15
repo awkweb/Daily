@@ -19,9 +19,6 @@ class ViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    // Setting up navigationBar styling
-    navigationController?.navigationBar.barTintColor = UIColor.gray()
     navigationController?.navigationBar.tintColor = UIColor.whiteColor()
     navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
     navigationController?.navigationBar.barStyle = UIBarStyle.Black
@@ -31,6 +28,12 @@ class ViewController: UIViewController {
     tableView.rowHeight = UITableViewAutomaticDimension
     tableView.estimatedRowHeight = 75.0
     
+    let kScreenRect = UIScreen.mainScreen().bounds
+    let kittyImage = UIImage(named: "smile")
+    let hiddenImageView = UIImageView(frame: CGRect(x: kScreenRect.width/2 - 27, y: -75, width: 54, height: 54))
+    hiddenImageView.image = kittyImage
+    tableView.addSubview(hiddenImageView)
+    
     fetchedResultsController = getFetchResultsController()
     fetchedResultsController.delegate = self
     fetchedResultsController.performFetch(nil)
@@ -38,6 +41,7 @@ class ViewController: UIViewController {
   
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
+    navigationController?.navigationBar.barTintColor = UIColor.green()
     checkSectionEmpty()
     tableView.reloadData()
   }

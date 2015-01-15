@@ -21,6 +21,7 @@ class AddDailyViewController: UIViewController {
     doneButton.tintColor = UIColor.gray()
     cancelButton.tintColor = UIColor.gray()
     typeSegmentedControl.tintColor = UIColor.green()
+    nameTextField.textColor = UIColor.gray()
     nameTextField.becomeFirstResponder()
   }
   

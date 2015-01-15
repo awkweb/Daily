@@ -11,7 +11,7 @@ import UIKit
 
 extension UIColor {
   class func gray() -> UIColor {
-    return UIColor(red: (62/255.0), green: (62/255.0), blue: (62/255.0), alpha: 1.0)
+    return UIColor(red: (64/255.0), green: (49/255.0), blue: (45/255.0), alpha: 1.0)
   }
   
   class func green() -> UIColor {

@@ -20,6 +20,7 @@ class DailyDetailViewController: UIViewController {
     typeSegmentedControl.selectedSegmentIndex = detailDailyModel.type.longValue
     nameTextField.text = detailDailyModel.name
     checkSegmentColor()
+    nameTextField.textColor = UIColor.gray()
     nameTextField.becomeFirstResponder()
   }
   
@@ -28,8 +29,7 @@ class DailyDetailViewController: UIViewController {
   }
   
   // Update the daily item in the appropriate section
-  @IBAction func doneBarButtonItemTapped(sender: UIBarButtonItem) {
-    
+  @IBAction func doneBarButtonItemTapped(sender: UIBarButtonItem) {    
     let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
     
     detailDailyModel.name = nameTextField.text
@@ -43,9 +43,11 @@ class DailyDetailViewController: UIViewController {
   func checkSegmentColor() {
     if typeSegmentedControl.selectedSegmentIndex == 0 {
       typeSegmentedControl.tintColor = UIColor.green()
+      navigationController?.navigationBar.barTintColor = UIColor.green()
     }
     else if typeSegmentedControl.selectedSegmentIndex == 1 {
       typeSegmentedControl.tintColor = UIColor.red()
+      navigationController?.navigationBar.barTintColor = UIColor.red()
     }
   }
 }

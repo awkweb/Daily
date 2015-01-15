@@ -14,5 +14,6 @@ class DailyCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+      dailyLabel.textColor = UIColor.gray()
     }
 }
