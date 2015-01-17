@@ -29,9 +29,9 @@ class ViewController: UIViewController {
     tableView.estimatedRowHeight = 75.0
     
     let kScreenRect = UIScreen.mainScreen().bounds
-    let kittyImage = UIImage(named: "smile")
+    let smileImage = UIImage(named: "smile") // Image from The Noun Project created by Yolaine Petges
     let hiddenImageView = UIImageView(frame: CGRect(x: kScreenRect.width/2 - 27, y: -75, width: 54, height: 54))
-    hiddenImageView.image = kittyImage
+    hiddenImageView.image = smileImage
     tableView.addSubview(hiddenImageView)
     
     fetchedResultsController = getFetchResultsController()
@@ -87,7 +87,7 @@ class ViewController: UIViewController {
           daily.name = "Tap to update me"
         }
         else {
-          daily.name = "Hold and swipe to delete me"
+          daily.name = "Swipe to delete me"
         }
         daily.type = sec
         appDelegate.saveContext()

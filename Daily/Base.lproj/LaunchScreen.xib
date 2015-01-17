@@ -19,16 +19,20 @@
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="smile" translatesAutoresizingMaskIntoConstraints="NO" id="5AF-qo-fqt">
+                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smile" translatesAutoresizingMaskIntoConstraints="NO" id="5AF-qo-fqt">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="5AF-qo-fqt" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="BhB-br-eqI"/>
                 <constraint firstItem="kId-c2-rCX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="19" id="G2F-L3-sBU"/>
                 <constraint firstAttribute="centerX" secondItem="kId-c2-rCX" secondAttribute="centerX" constant="0.5" id="S1R-tV-4eO"/>
                 <constraint firstAttribute="centerY" secondItem="kId-c2-rCX" secondAttribute="centerY" constant="-45" id="jYu-cK-SfK"/>
+                <constraint firstAttribute="bottom" secondItem="5AF-qo-fqt" secondAttribute="bottom" id="mkr-f3-Epo"/>
                 <constraint firstAttribute="trailing" secondItem="kId-c2-rCX" secondAttribute="trailing" constant="20" id="nrq-JD-cDQ"/>
+                <constraint firstItem="5AF-qo-fqt" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="r29-P5-m2x"/>
+                <constraint firstAttribute="trailing" secondItem="5AF-qo-fqt" secondAttribute="trailing" id="zRD-or-Kzs"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>

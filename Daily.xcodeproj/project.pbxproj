@@ -61,7 +61,6 @@
 		05ABE68E1A0BC7B10081E883 /* DailyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTests.swift; sourceTree = "<group>"; };
 		05ABE6981A0BC8C00081E883 /* DailyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyCell.swift; sourceTree = "<group>"; };
 		05ABE69C1A0BCF6A0081E883 /* DailyDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyDetailViewController.swift; sourceTree = "<group>"; };
-		05AE37771A15432C003FA7EF /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		05B5920D1A112592009F5AF8 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		05B5920F1A112723009F5AF8 /* DailyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyModel.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -90,7 +89,6 @@
 			children = (
 				05ABE6721A0BC7AF0081E883 /* Daily */,
 				05ABE68B1A0BC7B10081E883 /* DailyTests */,
-				05AE37761A15432C003FA7EF /* Frameworks */,
 				05ABE6711A0BC7AF0081E883 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -147,14 +145,6 @@
 				05ABE68D1A0BC7B10081E883 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		05AE37761A15432C003FA7EF /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				05AE37771A15432C003FA7EF /* NotificationCenter.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
