@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		050ECEB61A8029C50095D900 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 052911371A80213600795CAC /* NotificationCenter.framework */; };
+		050ECEBB1A8029C50095D900 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050ECEBA1A8029C50095D900 /* TodayViewController.swift */; };
+		050ECEBD1A8029C50095D900 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 050ECEBC1A8029C50095D900 /* MainInterface.storyboard */; };
+		050ECEC01A8029C50095D900 /* Daily Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 050ECEB51A8029C50095D900 /* Daily Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		054C47B71A66186200DF247E /* ColorConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054C47B61A66186200DF247E /* ColorConstants.swift */; };
 		05AA15D71A0BF6A10024E981 /* AddDailyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AA15D61A0BF6A10024E981 /* AddDailyViewController.swift */; };
 		05ABE6761A0BC7B00081E883 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05ABE6751A0BC7B00081E883 /* AppDelegate.swift */; };
@@ -23,6 +27,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		050ECEBE1A8029C50095D900 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 05ABE6681A0BC7AF0081E883 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 050ECEB41A8029C50095D900;
+			remoteInfo = "Daily Widget";
+		};
 		05ABE6891A0BC7B10081E883 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 05ABE6681A0BC7AF0081E883 /* Project object */;
@@ -39,6 +50,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				050ECEC01A8029C50095D900 /* Daily Widget.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -46,6 +58,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		050ECEB51A8029C50095D900 /* Daily Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Daily Widget.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		050ECEB91A8029C50095D900 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		050ECEBA1A8029C50095D900 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		050ECEBC1A8029C50095D900 /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
+		050ECEC41A8029D10095D900 /* Daily Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Daily Widget.entitlements"; sourceTree = "<group>"; };
+		052911371A80213600795CAC /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		0529115A1A8026B400795CAC /* Daily.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Daily.entitlements; sourceTree = "<group>"; };
 		054C47B61A66186200DF247E /* ColorConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorConstants.swift; path = ../ColorConstants.swift; sourceTree = "<group>"; };
 		05AA15D61A0BF6A10024E981 /* AddDailyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDailyViewController.swift; sourceTree = "<group>"; };
 		05ABE6701A0BC7AF0081E883 /* Daily.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Daily.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +85,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		050ECEB21A8029C50095D900 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				050ECEB61A8029C50095D900 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		05ABE66D1A0BC7AF0081E883 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -84,11 +111,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		050ECEB71A8029C50095D900 /* Daily Widget */ = {
+			isa = PBXGroup;
+			children = (
+				050ECEC41A8029D10095D900 /* Daily Widget.entitlements */,
+				050ECEBA1A8029C50095D900 /* TodayViewController.swift */,
+				050ECEBC1A8029C50095D900 /* MainInterface.storyboard */,
+				050ECEB81A8029C50095D900 /* Supporting Files */,
+			);
+			path = "Daily Widget";
+			sourceTree = "<group>";
+		};
+		050ECEB81A8029C50095D900 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				050ECEB91A8029C50095D900 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		052911361A80213600795CAC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				052911371A80213600795CAC /* NotificationCenter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		05ABE6671A0BC7AF0081E883 = {
 			isa = PBXGroup;
 			children = (
 				05ABE6721A0BC7AF0081E883 /* Daily */,
 				05ABE68B1A0BC7B10081E883 /* DailyTests */,
+				050ECEB71A8029C50095D900 /* Daily Widget */,
+				052911361A80213600795CAC /* Frameworks */,
 				05ABE6711A0BC7AF0081E883 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -98,6 +154,7 @@
 			children = (
 				05ABE6701A0BC7AF0081E883 /* Daily.app */,
 				05ABE6881A0BC7B10081E883 /* DailyTests.xctest */,
+				050ECEB51A8029C50095D900 /* Daily Widget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -105,6 +162,7 @@
 		05ABE6721A0BC7AF0081E883 /* Daily */ = {
 			isa = PBXGroup;
 			children = (
+				0529115A1A8026B400795CAC /* Daily.entitlements */,
 				05ABE6751A0BC7B00081E883 /* AppDelegate.swift */,
 				05ABE67A1A0BC7B10081E883 /* ViewController.swift */,
 				05ABE69C1A0BCF6A0081E883 /* DailyDetailViewController.swift */,
@@ -150,6 +208,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		050ECEB41A8029C50095D900 /* Daily Widget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 050ECEC11A8029C60095D900 /* Build configuration list for PBXNativeTarget "Daily Widget" */;
+			buildPhases = (
+				050ECEB11A8029C50095D900 /* Sources */,
+				050ECEB21A8029C50095D900 /* Frameworks */,
+				050ECEB31A8029C50095D900 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Daily Widget";
+			productName = "Daily Widget";
+			productReference = 050ECEB51A8029C50095D900 /* Daily Widget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		05ABE66F1A0BC7AF0081E883 /* Daily */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 05ABE6921A0BC7B10081E883 /* Build configuration list for PBXNativeTarget "Daily" */;
@@ -162,6 +237,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				050ECEBF1A8029C50095D900 /* PBXTargetDependency */,
 			);
 			name = Daily;
 			productName = Daily;
@@ -195,9 +271,23 @@
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = thomas;
 				TargetAttributes = {
+					050ECEB41A8029C50095D900 = {
+						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = LCFAPK739L;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
 					05ABE66F1A0BC7AF0081E883 = {
 						CreatedOnToolsVersion = 6.1;
 						DevelopmentTeam = LCFAPK739L;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					05ABE6871A0BC7B10081E883 = {
 						CreatedOnToolsVersion = 6.1;
@@ -220,11 +310,20 @@
 			targets = (
 				05ABE66F1A0BC7AF0081E883 /* Daily */,
 				05ABE6871A0BC7B10081E883 /* DailyTests */,
+				050ECEB41A8029C50095D900 /* Daily Widget */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		050ECEB31A8029C50095D900 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				050ECEBD1A8029C50095D900 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		05ABE66E1A0BC7AF0081E883 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -245,6 +344,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		050ECEB11A8029C50095D900 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				050ECEBB1A8029C50095D900 /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		05ABE66C1A0BC7AF0081E883 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -271,6 +378,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		050ECEBF1A8029C50095D900 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 050ECEB41A8029C50095D900 /* Daily Widget */;
+			targetProxy = 050ECEBE1A8029C50095D900 /* PBXContainerItemProxy */;
+		};
 		05ABE68A1A0BC7B10081E883 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 05ABE66F1A0BC7AF0081E883 /* Daily */;
@@ -298,6 +410,40 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		050ECEC21A8029C60095D900 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Daily Widget/Daily Widget.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Daily Widget/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		050ECEC31A8029C60095D900 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Daily Widget/Daily Widget.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "Daily Widget/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		05ABE6901A0BC7B10081E883 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -380,12 +526,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Daily/Daily.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Daily/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -393,12 +542,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_ENTITLEMENTS = Daily/Daily.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Daily/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -439,6 +591,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		050ECEC11A8029C60095D900 /* Build configuration list for PBXNativeTarget "Daily Widget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				050ECEC21A8029C60095D900 /* Debug */,
+				050ECEC31A8029C60095D900 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		05ABE66B1A0BC7AF0081E883 /* Build configuration list for PBXProject "Daily" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
