@@ -1,0 +1,46 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ site.description }}">
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+  <meta name="author" content="{{ site.author }}">
+  <meta name="keywords" content="{{ site.keywords }}">
+
+  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="{{ "../Dailycss/styles.css" | prepend: site.baseurl }}">
+  
+  <!-- Favicons/Images -->
+  <link rel="apple-touch-icon" href="{{ "/Daily/img/apple-touch-icon.png" | prepend: site.baseurl }}">
+  <link rel="shortcut icon" href="{{ "/Daily/img/favicon.png" | prepend: site.baseurl }}">
+
+  <!-- Google Analytics -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-52981191-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+  <!-- Other -->
+  <meta name="apple-itunes-app" content="app-id=942352316">
+        
+  <meta name="twitter:card" content="app">
+  <meta name="twitter:description" content="Keep track of your dos and don'ts, everyday">
+  <meta name="twitter:app:name:iphone" content="Daily">
+  <meta name="twitter:app:id:iphone" content="942352316">
+  <meta name="twitter:app:name:ipad" content="Daily">
+  <meta name="twitter:app:id:ipad" content="942352316">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Daily">
+  <meta property="og:image" content="https://thomasmeagher.com/Daily/img/appicon.png">
+  <meta property="og:site_name" content="Daily">
+  <meta property="og:description" content="Keep track of your dos and don'ts, everyday">
+</head>

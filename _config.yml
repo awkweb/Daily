@@ -1,0 +1,10 @@
+# Site settings
+title: Daily - keep track of your dos and don'ts everyday
+description: "keep track of your dos and don'ts, everyday"
+url: "http://thomasmeagher.com/Daily"
+author: "Thomas Meagher"
+keywords: "daily,do,don't,habits,dos,don'ts,practice,consistency,list,everyday"
+
+exclude: []
+include: []
+timezone: America/New_York
