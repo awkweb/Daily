@@ -34,9 +34,6 @@ class ViewController: UIViewController {
     hiddenImageView.image = smileImage
     tableView.addSubview(hiddenImageView)
     
-    let longPress = UILongPressGestureRecognizer(target: self, action: "longPressGestureRecognized:")
-    tableView.addGestureRecognizer(longPress)
-    
     fetchedResultsController = getFetchResultsController()
     fetchedResultsController.delegate = self
     fetchedResultsController.performFetch(nil)
@@ -95,100 +92,6 @@ class ViewController: UIViewController {
         daily.type = sec
         appDelegate.saveContext()
       }
-    }
-  }
-  
-  // Returns a customized snapshot of the supplied view
-  func customSnapshotFromView(inputView: UIView) -> UIView {
-    // Make an image from the input view
-    UIGraphicsBeginImageContextWithOptions(inputView.bounds.size, false, 0)
-    inputView.layer.renderInContext(UIGraphicsGetCurrentContext())
-    let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()
-    UIGraphicsEndImageContext()
-    
-    // Create an image view
-    let snapshot = UIImageView(image: image)
-    snapshot.layer.masksToBounds = false
-    snapshot.layer.cornerRadius = 0.0
-    snapshot.layer.shadowOffset = CGSizeMake(-5.0, 0.0)
-    snapshot.layer.shadowRadius = 5.0
-    snapshot.layer.shadowOpacity = 0.4
-    
-    return snapshot
-  }
-  
-  func longPressGestureRecognized(sender: UILongPressGestureRecognizer) {
-    let longPress: UILongPressGestureRecognizer = sender
-    let state: UIGestureRecognizerState = longPress.state
-    let location: CGPoint = longPress.locationInView(tableView)
-    let indexPath: NSIndexPath? = tableView.indexPathForRowAtPoint(location)
-    
-    struct Static {
-      static var sourceIndexPath: NSIndexPath?
-      static var snapshot: UIView?
-    }
-    
-    switch state {
-    case .Began:
-      if indexPath != nil {
-        Static.sourceIndexPath = indexPath!
-        let cell: UITableViewCell = tableView.cellForRowAtIndexPath(indexPath!)!
-        
-        // Take a snapshot of the selected row using helper method
-        Static.snapshot = customSnapshotFromView(cell)
-        
-        // Add the snapshot as subview, centered at cell's center
-        var center: CGPoint = cell.center
-        Static.snapshot!.center = center
-        Static.snapshot!.alpha = 0.0
-        tableView.addSubview(Static.snapshot!)
-        UIView.animateWithDuration(0.25, animations: {
-          
-          // Offset for gesture location
-          center.y = location.y
-          Static.snapshot!.center = center
-          Static.snapshot!.transform = CGAffineTransformMakeScale(1.05, 1.05)
-          Static.snapshot!.alpha = 0.98
-          
-          // Fade out
-          cell.alpha = 0.0
-          }, completion: { finished in
-            cell.hidden	= true
-        })
-      }
-    case .Changed:
-      var center: CGPoint = Static.snapshot!.center
-      center.y = location.y
-      Static.snapshot!.center = center
-      
-      // Is destination valid and different from source?
-      if indexPath != nil && indexPath != Static.sourceIndexPath {
-        
-        // Update data source and move the rows
-        tableView.moveRowAtIndexPath(Static.sourceIndexPath!, toIndexPath: indexPath!)
-        
-        // Update the source
-        Static.sourceIndexPath = indexPath
-      }
-    default:
-      
-      // Clean up
-      let cell: UITableViewCell = tableView.cellForRowAtIndexPath(Static.sourceIndexPath!)!
-      cell.hidden = false
-      cell.alpha = 0.0
-      
-      UIView.animateWithDuration(0.25, animations: {
-        Static.snapshot!.center = cell.center
-        Static.snapshot!.transform = CGAffineTransformIdentity
-        Static.snapshot!.alpha = 0.0
-        
-        // Undo fade out
-        cell.alpha = 1.0
-        }, completion: { finished in
-          Static.snapshot!.removeFromSuperview()
-          Static.snapshot = nil
-          Static.sourceIndexPath = nil
-      })
     }
   }
 }
