@@ -13,8 +13,8 @@ class ViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
   
-  let appDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
-  let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
+  let appDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
+  let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
   var fetchedResultsController: NSFetchedResultsController = NSFetchedResultsController()
   
   override func viewDidLoad() {
@@ -54,13 +54,13 @@ class ViewController: UIViewController {
   // Prepare for segues to ViewControllers
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "showDetails" {
-      let detailVC: DailyDetailViewController = segue.destinationViewController as DailyDetailViewController
+      let detailVC: DailyDetailViewController = segue.destinationViewController as! DailyDetailViewController
       let indexPath = self.tableView.indexPathForSelectedRow()
-      let thisDaily = self.fetchedResultsController.objectAtIndexPath(indexPath!) as DailyModel
+      let thisDaily = self.fetchedResultsController.objectAtIndexPath(indexPath!) as! DailyModel
       detailVC.detailDailyModel = thisDaily
     }
     else if segue.identifier == "showAdd" {
-      let addDailyVC: AddDailyViewController = segue.destinationViewController as AddDailyViewController
+      let addDailyVC: AddDailyViewController = segue.destinationViewController as! AddDailyViewController
     }
   }
   
@@ -70,7 +70,7 @@ class ViewController: UIViewController {
     if self.fetchedResultsController.sections!.count == 1 {
       if self.fetchedResultsController.sections![0].numberOfObjects > 0 {
         var indexPath = NSIndexPath(forItem: 0, inSection: 0)
-        var daily = fetchedResultsController.objectAtIndexPath(indexPath) as DailyModel
+        var daily = fetchedResultsController.objectAtIndexPath(indexPath) as! DailyModel
         type = daily.type.boolValue
       }
     }
@@ -108,8 +108,8 @@ extension ViewController: UITableViewDataSource {
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let thisDaily = self.fetchedResultsController.objectAtIndexPath(indexPath) as DailyModel
-    var cell: DailyCell = self.tableView.dequeueReusableCellWithIdentifier("myCell") as DailyCell
+    let thisDaily = self.fetchedResultsController.objectAtIndexPath(indexPath) as! DailyModel
+    var cell: DailyCell = self.tableView.dequeueReusableCellWithIdentifier("myCell") as! DailyCell
     cell.dailyLabel.text = thisDaily.name
     return cell
   }
@@ -146,7 +146,7 @@ extension ViewController: UITableViewDelegate {
     var deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Delete") {
       (action, indexPath) -> Void in
       self.tableView.editing = false
-      self.managedObjectContext?.deleteObject(self.fetchedResultsController.objectAtIndexPath(indexPath) as NSManagedObject)
+      self.managedObjectContext?.deleteObject(self.fetchedResultsController.objectAtIndexPath(indexPath) as! NSManagedObject)
       self.appDelegate.saveContext()
       self.checkSectionEmpty()
     }
@@ -156,7 +156,7 @@ extension ViewController: UITableViewDelegate {
   
   // Swipe to reveal delete button. Delete item and save context.
   func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-    managedObjectContext?.deleteObject(self.fetchedResultsController.objectAtIndexPath(indexPath) as NSManagedObject)
+    managedObjectContext?.deleteObject(self.fetchedResultsController.objectAtIndexPath(indexPath) as! NSManagedObject)
     appDelegate.saveContext()
     checkSectionEmpty()
   }

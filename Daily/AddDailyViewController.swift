@@ -37,7 +37,7 @@ class AddDailyViewController: UIViewController {
   // When the Done button is tapped, add the daily item
   @IBAction func doneButtonTapped(sender: UIButton) {
     
-    let appDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
+    let appDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
     let managedObjectContext = appDelegate.managedObjectContext
     let entityDescription = NSEntityDescription.entityForName("DailyModel", inManagedObjectContext:managedObjectContext!)
     

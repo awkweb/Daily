@@ -30,7 +30,7 @@ class DailyDetailViewController: UIViewController {
   
   // Update the daily item in the appropriate section
   @IBAction func doneBarButtonItemTapped(sender: UIBarButtonItem) {    
-    let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     detailDailyModel.name = nameTextField.text
     detailDailyModel.type = typeSegmentedControl.selectedSegmentIndex

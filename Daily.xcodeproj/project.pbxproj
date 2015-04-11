@@ -598,6 +598,7 @@
 				050ECEC31A8029C60095D900 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		05ABE66B1A0BC7AF0081E883 /* Build configuration list for PBXProject "Daily" */ = {
 			isa = XCConfigurationList;

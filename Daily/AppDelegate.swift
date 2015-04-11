@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   lazy var applicationDocumentsDirectory: NSURL = {
     let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
-    return urls[urls.count-1] as NSURL
+    return urls[urls.count-1] as! NSURL
     }()
   
   lazy var managedObjectModel: NSManagedObjectModel = {
@@ -58,7 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       dict[NSLocalizedDescriptionKey] = "Failed to initialize the application's saved data"
       dict[NSLocalizedFailureReasonErrorKey] = failureReason
       dict[NSUnderlyingErrorKey] = error
-      error = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict)
+      error = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict as [NSObject : AnyObject])
 
       NSLog("Unresolved error \(error), \(error!.userInfo)")
       abort()
